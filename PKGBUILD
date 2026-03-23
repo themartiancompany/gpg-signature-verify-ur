@@ -117,11 +117,6 @@ optdepends=(
 makedepends=(
   'make'
 )
-if [[ "${_evmfs}" == "true" ]]; then
-  makedepends+=(
-    "evmfs"
-  )
-fi
 if [[ "${_docs}" == "true" ]]; then
   makedepends+=(
     "${_py}-docutils"
@@ -130,6 +125,11 @@ fi
 if [[ "${_git}" == "true" ]]; then
   makedepends+=(
     "git"
+  )
+fi
+if [[ "${_evmfs}" == "true" ]]; then
+  makedepends+=(
+    "evmfs"
   )
 fi
 checkdepends=(
@@ -185,7 +185,6 @@ if [[ "${_evmfs}" == "true" ]]; then
     return \
       1
   fi
-
 elif [[ "${_evmfs}" == "false" ]]; then
   if [[ "${_git}" == "true" ]]; then
     _src="${_tarname}::git+${_url}#${_tag_name}=${_tag}?signed"
@@ -200,10 +199,10 @@ elif [[ "${_evmfs}" == "false" ]]; then
     fi
   fi
 fi
-source=(
+source+=(
   "${_src}"
 )
-sha256sums=(
+sha256sums+=(
   "${_sum}"
 )
 validpgpkeys=(
