@@ -84,7 +84,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1.1"
 _commit="09d0cd663e3d7ce3d3b8ce199e51bc5759d1b774"
-pkgrel=2
+pkgrel=3
 _pkgdesc=(
   "Checks a file is cryptographically"
   "signed with one of the input OpenPGP public"
